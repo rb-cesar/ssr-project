@@ -7,7 +7,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-    "baseUrl": "."
+    "baseUrl": "client",
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "ts-node": {
     "esm": true,
