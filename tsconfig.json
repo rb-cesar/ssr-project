@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true
+  },
+  "include": ["server", "client", "shared"]
+}
