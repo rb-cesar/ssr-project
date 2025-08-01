@@ -3,20 +3,20 @@ import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
 import fs from 'fs';
 import path from 'path';
-import App from '../shared/App';
+import App from '../client/src/App';
 
 const isProd = process.env.NODE_ENV === 'production';
 const app = express();
 
 app.use('/assets', express.static(path.resolve(import.meta.dirname, '../dist/client/assets')));
 
-app.get('/*splat', async (req, res) => {
-  const indexHTML = isProd
+app.get('/*splat', async (_, res) => {
+  const template = isProd
     ? fs.readFileSync(path.resolve(import.meta.dirname, '../dist/client/index.html'), 'utf-8')
     : fs.readFileSync(path.resolve(import.meta.dirname, '../client/index.html'), 'utf-8');
 
   const appHTML = renderToString(createElement(App));
-  const html = indexHTML.replace('<!--ssr-outlet-->', appHTML);
+  const html = template.replace('<!--ssr-outlet-->', appHTML);
 
   res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
 });
