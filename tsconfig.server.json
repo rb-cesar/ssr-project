@@ -3,9 +3,9 @@
   "compilerOptions": {
     "outDir": "dist/server",
     "rootDir": "server",
-    "module": "NodeNext",
     "target": "ES2022",
-    "moduleResolution": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "noEmit": false
   },
   "include": ["server"]
