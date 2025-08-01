@@ -9,7 +9,7 @@ export default defineConfig({
     outDir: '../dist/client',
     ssrManifest: true,
     rollupOptions: {
-      input: './client/main.tsx',
+      input: './client/entryClient.tsx',
     },
   },
 });
